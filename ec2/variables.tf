@@ -45,3 +45,8 @@ variable "sg_egress_cidr" {
   type        = string
   default     = "0.0.0.0/0"
 }
+
+variable "subnet_id" {
+  description = "The ID of the subnet to launch the instance in"
+  type        = string
+}
