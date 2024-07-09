@@ -38,10 +38,10 @@ variable "min_capacity" {
   default     = 1
 }
 
-variable "instance_type" {
+variable "instance_type2" {
   description = "The instance type for the nodes"
   type        = string
-  default     = "t3.medium"
+  default     = "t2.medium"
 }
 
 variable "key_name" {

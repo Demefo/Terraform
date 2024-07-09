@@ -25,7 +25,7 @@ resource "aws_eks_node_group" "this" {
     min_size     = var.min_capacity
   }
 
-  instance_types = [var.instance_type]
+  instance_types = [var.instance_type2]
   disk_size      = var.disk_size
 
   tags = {

@@ -30,7 +30,7 @@ module "elastic_ip" {
 }
 
 module "eks_cluster" {
-  source           = "./eks_module"
+  source           = "./eks"
   cluster_name     = var.cluster_name
   cluster_version  = var.cluster_version
   subnet_ids       = [module.vpc.subnet_id]
