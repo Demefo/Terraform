@@ -38,7 +38,6 @@ module "eks_cluster" {
   desired_capacity = var.desired_capacity
   max_capacity     = var.max_capacity
   min_capacity     = var.min_capacity
-  instance_type    = var.instance_type
   key_name         = var.key_name
   cluster_role_arn = var.cluster_role_arn
   node_role_arn    = var.node_role_arn
