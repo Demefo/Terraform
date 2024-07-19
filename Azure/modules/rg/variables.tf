@@ -1,12 +1,12 @@
-variable "admin_username" {
-  description = "Admin username for the VM"
-  type        = string
-}
+# variable "admin_username" {
+#   description = "Admin username for the VM"
+#   type        = string
+# }
 
-variable "ssh_public_key" {
-  description = "SSH public key path"
-  type        = string
-}
+# variable "ssh_public_key" {
+#   description = "SSH public key path"
+#   type        = string
+# }
 
 variable "resource_group_name" {
   description = "The name of the resource group"

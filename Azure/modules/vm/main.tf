@@ -6,7 +6,7 @@ data "azurerm_resource_group" "terraform" {
 resource "azurerm_network_security_group" "terraform" {
   name                = "tf-nsg"
   location            = var.location
-  resource_group_name = "my-resource-group"
+  resource_group_name = var.resource_group
 }
 
 
@@ -19,13 +19,13 @@ resource "azurerm_virtual_network" "terraform" {
 
 resource "azurerm_network_security_rule" "allow_ports" {
   count                       = 4
-  name                        = "allow-port-${element(["http", "8080", "5000", "3000"], count.index)}"
+  name                        = "allow-port-${element(["http", "ssh", "8080", "5000", "3000"], count.index)}"
   priority                    = 100 + count.index
   direction                   = "Inbound"
   access                      = "Allow"
   protocol                    = "Tcp"
   source_port_range           = "*"
-  destination_port_range      = element([80, 8080, 5000, 3000], count.index)
+  destination_port_range      = element([80, 22, 8080, 5000, 3000], count.index)
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
   resource_group_name         = azurerm_network_security_group.terraform.resource_group_name
@@ -82,8 +82,8 @@ resource "azurerm_virtual_machine" "terraform" {
 
   storage_image_reference {
     publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "22.04-LTS"
+    offer     = "0001-com-ubuntu-server-jammy"
+    sku       = "22_04-LTS"
     version   = "latest"
   }
 
