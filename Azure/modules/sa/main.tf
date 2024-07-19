@@ -1,13 +1,14 @@
-resource "azurerm_resource_group" "example" {
-  name     = "terraform-practice"
-  location = "East US"
+resource "azurerm_storage_account" "terraform" {
+  name                     = var.storage_account_name
+  resource_group_name      = var.resource_group_name
+  location                 = var.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+  
 }
 
-resource "azurerm_virtual_network" "example" {
-  name                = "example-network"
-  address_space       = ["10.0.0.0/16"]
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+resource "azurerm_storage_container" "terraform" {
+  name                  = "tfcontainer"
+  storage_account_name  = azurerm_storage_account.terraform.name
+  container_access_type = "blob"
 }
-
-# Add other resources (VM, subnet, etc.) here

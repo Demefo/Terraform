@@ -1,5 +1,4 @@
-output "vm_ip_address" {
-  value = azurerm_linux_virtual_machine.example.private_ip_address
+output "storage_account_id" {
+  description = "ID of the created storage account"
+  value       = azurerm_storage_account.terraform.id
 }
-
-# Add other outputs as needed
