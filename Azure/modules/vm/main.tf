@@ -9,7 +9,6 @@ resource "azurerm_network_security_group" "terraform" {
   resource_group_name = var.resource_group
 }
 
-
 resource "azurerm_virtual_network" "terraform" {
   name                = "tf-vnet"
   address_space       = ["10.0.0.0/16"]
@@ -95,6 +94,9 @@ resource "azurerm_virtual_machine" "terraform" {
 
   os_profile_linux_config {
     disable_password_authentication = false
+    ssh_keys {
+      key_data = file("~/terraform-practice.pem") # Point to your SSH public key
+    }
   }
 
   tags = {

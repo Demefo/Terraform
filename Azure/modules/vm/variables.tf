@@ -3,10 +3,11 @@
 #   type        = string
 # }
 
-# variable "ssh_public_key" {
-#   description = "SSH public key path"
-#   type        = string
-# }
+variable "ssh_public_key" {
+  description = "SSH public key path"
+  type        = path
+  default     = "~\\Downloads\terraform-practice.pem"
+}
 
 variable "location" {
   description = "The location of the resource group"
