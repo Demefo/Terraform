@@ -5,7 +5,7 @@
 
 variable "ssh_public_key" {
   description = "SSH public key path"
-  type        = string
+  type        = path
   default     = "~\\Downloads\terraform-practice.pem"
 }
 
