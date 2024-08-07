@@ -95,7 +95,8 @@ resource "azurerm_virtual_machine" "terraform" {
   os_profile_linux_config {
     disable_password_authentication = false
     ssh_keys {
-      key_data = file("~/terraform-practice.pem") # Point to your SSH public key
+      path     = "/home/adminuser/.ssh/authorized_keys"
+      key_data = file("./keys/vm-tf.pub")
     }
   }
 
