@@ -3,5 +3,5 @@ output "generated_pet_name" {
 }
 
 output "kubernetes_cluster_name" {
-  value = azurerm_kubernetes_cluster.default.name
+  value = azurerm_kubernetes_cluster.system.name
 }

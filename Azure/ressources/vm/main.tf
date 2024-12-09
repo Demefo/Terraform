@@ -31,12 +31,7 @@ resource "azurerm_network_security_rule" "allow_ports" {
   network_security_group_name = azurerm_network_security_group.terraform.name
 }
 
-resource "azurerm_subnet" "terraform" {
-  name                 = "tf-subnet"
-  resource_group_name  = data.azurerm_resource_group.terraform.name
-  virtual_network_name = azurerm_virtual_network.terraform.name
-  address_prefixes     = ["10.0.1.0/24"]
-}
+ 
 
 resource "azurerm_subnet_network_security_group_association" "terraform" {
   subnet_id                 = azurerm_subnet.terraform.id
